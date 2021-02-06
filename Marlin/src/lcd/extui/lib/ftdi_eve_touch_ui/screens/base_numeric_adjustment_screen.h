@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BASE_NUMERIC_ADJ_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_BASE_NUMERIC_ADJ_SCREEN
 #define FTDI_BASE_NUMERIC_ADJ_SCREEN_CLASS BaseNumericAdjustmentScreen
 
@@ -84,5 +85,3 @@ class BaseNumericAdjustmentScreen : public BaseScreen {
     static void onEntry();
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_BASE_NUMERIC_ADJ_SCREEN

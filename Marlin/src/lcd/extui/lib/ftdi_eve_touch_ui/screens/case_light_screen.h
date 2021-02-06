@@ -19,14 +19,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_CASE_LIGHT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_CASE_LIGHT_SCREEN
 #define FTDI_CASE_LIGHT_SCREEN_CLASS CaseLightScreen
 
-  class CaseLightScreen : public BaseNumericAdjustmentScreen, public CachedScreen<CASE_LIGHT_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_CASE_LIGHT_SCREEN
+class CaseLightScreen : public BaseNumericAdjustmentScreen, public CachedScreen<CASE_LIGHT_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

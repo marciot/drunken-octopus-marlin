@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_LANGUAGE_MENU // Don't use pragma once here
+#pragma once
+
 #define FTDI_LANGUAGE_MENU
 #define FTDI_LANGUAGE_MENU_CLASS LanguageMenu
 
-  class LanguageMenu : public BaseScreen, public UncachedScreen {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_LANGUAGE_MENU
+class LanguageMenu : public BaseScreen, public UncachedScreen {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

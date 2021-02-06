@@ -21,37 +21,36 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BIO_STATUS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_BIO_STATUS_SCREEN
 #define FTDI_BIO_STATUS_SCREEN_CLASS StatusScreen
 
-  class StatusScreen : public BaseScreen, public CachedScreen<STATUS_SCREEN_CACHE> {
-    private:
-      static float increment;
-      static bool  jog_xy;
-      static bool  fine_motion;
+class StatusScreen : public BaseScreen, public CachedScreen<STATUS_SCREEN_CACHE> {
+  private:
+    static float increment;
+    static bool  jog_xy;
+    static bool  fine_motion;
 
-      static void draw_progress(draw_mode_t what);
-      static void draw_temperature(draw_mode_t what);
-      static void draw_syringe(draw_mode_t what);
-      static void draw_arrows(draw_mode_t what);
-      static void draw_overlay_icons(draw_mode_t what);
-      static void draw_fine_motion(draw_mode_t what);
-      static void draw_buttons(draw_mode_t what);
-    public:
-      static void loadBitmaps();
-      static void unlockMotors();
+    static void draw_progress(draw_mode_t what);
+    static void draw_temperature(draw_mode_t what);
+    static void draw_syringe(draw_mode_t what);
+    static void draw_arrows(draw_mode_t what);
+    static void draw_overlay_icons(draw_mode_t what);
+    static void draw_fine_motion(draw_mode_t what);
+    static void draw_buttons(draw_mode_t what);
+  public:
+    static void loadBitmaps();
+    static void unlockMotors();
 
-      static void setStatusMessage(const char *);
-      static void setStatusMessage(progmem_str);
+    static void setStatusMessage(const char *);
+    static void setStatusMessage(progmem_str);
 
-      static void onRedraw(draw_mode_t);
+    static void onRedraw(draw_mode_t);
 
-      static bool onTouchStart(uint8_t tag);
-      static bool onTouchHeld(uint8_t tag);
-      static bool onTouchEnd(uint8_t tag);
-      static void onIdle();
+    static bool onTouchStart(uint8_t tag);
+    static bool onTouchHeld(uint8_t tag);
+    static bool onTouchEnd(uint8_t tag);
+    static void onIdle();
 
-  };
-
-#endif // FTDI_BIO_STATUS_SCREEN
+};

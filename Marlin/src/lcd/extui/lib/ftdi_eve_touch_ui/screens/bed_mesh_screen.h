@@ -19,45 +19,44 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BED_MESH_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_BED_MESH_SCREEN
 #define FTDI_BED_MESH_SCREEN_CLASS BedMeshScreen
 
-  struct BedMeshScreenData {
-    enum : uint8_t {
-      MSG_NONE,
-      MSG_MESH_COMPLETE,
-      MSG_MESH_INCOMPLETE
-    } message;
-    uint8_t count;
-    uint8_t highlightedTag;
-  };
+struct BedMeshScreenData {
+  enum : uint8_t {
+    MSG_NONE,
+    MSG_MESH_COMPLETE,
+    MSG_MESH_INCOMPLETE
+  } message;
+  uint8_t count;
+  uint8_t highlightedTag;
+};
 
-  class BedMeshScreen : public BaseScreen, public CachedScreen<BED_MESH_SCREEN_CACHE> {
-    private:
-      enum MeshOpts {
-        USE_POINTS    = 0x01,
-        USE_COLORS    = 0x02,
-        USE_TAGS      = 0x04,
-        USE_HIGHLIGHT = 0x08,
-        USE_AUTOSCALE = 0x10
-      };
+class BedMeshScreen : public BaseScreen, public CachedScreen<BED_MESH_SCREEN_CACHE> {
+  private:
+    enum MeshOpts {
+      USE_POINTS    = 0x01,
+      USE_COLORS    = 0x02,
+      USE_TAGS      = 0x04,
+      USE_HIGHLIGHT = 0x08,
+      USE_AUTOSCALE = 0x10
+    };
 
-      static uint8_t pointToTag(uint8_t x, uint8_t y);
-      static bool tagToPoint(uint8_t tag, uint8_t &x, uint8_t &y);
-      static float getHightlightedValue();
-      static void drawHighlightedPointValue();
-      static void drawMesh(int16_t x, int16_t y, int16_t w, int16_t h, ExtUI::bed_mesh_t data, uint8_t opts, float autoscale_max = 0.1);
+    static uint8_t pointToTag(uint8_t x, uint8_t y);
+    static bool tagToPoint(uint8_t tag, uint8_t &x, uint8_t &y);
+    static float getHightlightedValue();
+    static void drawHighlightedPointValue();
+    static void drawMesh(int16_t x, int16_t y, int16_t w, int16_t h, ExtUI::bed_mesh_t data, uint8_t opts, float autoscale_max = 0.1);
 
-    public:
-      static void onMeshUpdate(const int8_t x, const int8_t y, const float val);
-      static void onMeshUpdate(const int8_t x, const int8_t y, const ExtUI::probe_state_t);
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchStart(uint8_t tag);
-      static bool onTouchEnd(uint8_t tag);
+  public:
+    static void onMeshUpdate(const int8_t x, const int8_t y, const float val);
+    static void onMeshUpdate(const int8_t x, const int8_t y, const ExtUI::probe_state_t);
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchStart(uint8_t tag);
+    static bool onTouchEnd(uint8_t tag);
 
-      static void startMeshProbe();
-  };
-
-#endif // FTDI_BED_MESH_SCREEN
+    static void startMeshProbe();
+};

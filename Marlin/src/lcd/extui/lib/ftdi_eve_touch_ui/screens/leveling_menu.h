@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_LEVELING_MENU // Don't use pragma once here
+#pragma once
+
 #define FTDI_LEVELING_MENU
 #define FTDI_LEVELING_MENU_CLASS LevelingMenu
 
-  class LevelingMenu : public BaseScreen, public CachedScreen<LEVELING_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_LEVELING_MENU
+class LevelingMenu : public BaseScreen, public CachedScreen<LEVELING_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

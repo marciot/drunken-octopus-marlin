@@ -21,7 +21,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BOOT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_BOOT_SCREEN
 #define FTDI_BOOT_SCREEN_CLASS BootScreen
 
@@ -32,5 +33,3 @@ class BootScreen : public BaseScreen, public UncachedScreen {
     static void onRedraw(draw_mode_t);
     static void onIdle();
 };
-
-#endif // FTDI_BOOT_SCREEN

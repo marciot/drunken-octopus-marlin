@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_FEEDRATE_PERCENT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_FEEDRATE_PERCENT_SCREEN
 #define FTDI_FEEDRATE_PERCENT_SCREEN_CLASS FeedratePercentScreen
 
-  class FeedratePercentScreen : public BaseNumericAdjustmentScreen, public CachedScreen<MAX_FEEDRATE_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_FEEDRATE_PERCENT_SCREEN
+class FeedratePercentScreen : public BaseNumericAdjustmentScreen, public CachedScreen<MAX_FEEDRATE_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

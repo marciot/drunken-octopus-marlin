@@ -20,30 +20,29 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_STRESS_TEST_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_STRESS_TEST_SCREEN
 #define FTDI_STRESS_TEST_SCREEN_CLASS StressTestScreen
 
-  struct StressTestScreenData {
-    uint32_t next_watchdog_trigger;
-    const char*  message;
-  };
+struct StressTestScreenData {
+  uint32_t next_watchdog_trigger;
+  const char*  message;
+};
 
-  class StressTestScreen : public BaseScreen, public UncachedScreen {
-    private:
-      static void drawDots(uint16_t x, uint16_t y, uint16_t h, uint16_t v);
-      static bool watchDogTestNow();
-      static void recursiveLockup();
-      static void iterativeLockup();
-      static void runTestOnBootup(bool enable);
+class StressTestScreen : public BaseScreen, public UncachedScreen {
+  private:
+    static void drawDots(uint16_t x, uint16_t y, uint16_t h, uint16_t v);
+    static bool watchDogTestNow();
+    static void recursiveLockup();
+    static void iterativeLockup();
+    static void runTestOnBootup(bool enable);
 
-    public:
-      static void startupCheck();
+  public:
+    static void startupCheck();
 
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-      static void onIdle();
-  };
-
-#endif // FTDI_STRESS_TEST_SCREEN
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+    static void onIdle();
+};

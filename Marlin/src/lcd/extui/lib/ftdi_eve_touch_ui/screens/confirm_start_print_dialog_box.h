@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_CONFIRM_START_PRINT_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_CONFIRM_START_PRINT_DIALOG_BOX
 #define FTDI_CONFIRM_START_PRINT_DIALOG_BOX_CLASS ConfirmStartPrintDialogBox
 
@@ -40,5 +41,3 @@ class ConfirmStartPrintDialogBox : public DialogBoxBaseClass, public UncachedScr
 
     static void show(uint8_t file_index);
 };
-
-#endif // FTDI_CONFIRM_START_PRINT_DIALOG_BOX

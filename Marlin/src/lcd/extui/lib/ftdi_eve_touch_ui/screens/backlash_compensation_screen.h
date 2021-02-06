@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BACKLASH_COMP_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_BACKLASH_COMP_SCREEN
 #define FTDI_BACKLASH_COMP_SCREEN_CLASS BacklashCompensationScreen
 
-  class BacklashCompensationScreen : public BaseNumericAdjustmentScreen, public CachedScreen<BACKLASH_COMPENSATION_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_BACKLASH_COMP_SCREEN
+class BacklashCompensationScreen : public BaseNumericAdjustmentScreen, public CachedScreen<BACKLASH_COMPENSATION_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BIO_ADVANCED_SETTINGS_MENU // Don't use pragma once here
+#pragma once
+
 #define FTDI_BIO_ADVANCED_SETTINGS_MENU
 #define FTDI_BIO_ADVANCED_SETTINGS_MENU_CLASS AdvancedSettingsMenu
 
@@ -29,5 +30,3 @@ class AdvancedSettingsMenu : public BaseScreen, public CachedScreen<ADVANCED_SET
     static void onRedraw(draw_mode_t);
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_BIO_ADVANCED_SETTINGS_MENU

@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_RESTORE_FAILSAFE_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_RESTORE_FAILSAFE_DIALOG_BOX
 #define FTDI_RESTORE_FAILSAFE_DIALOG_BOX_CLASS RestoreFailsafeDialogBox
 
@@ -29,5 +30,3 @@ class RestoreFailsafeDialogBox : public DialogBoxBaseClass, public UncachedScree
     static void onRedraw(draw_mode_t);
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_RESTORE_FAILSAFE_DIALOG_BOX

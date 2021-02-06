@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_LINEAR_ADVANCE_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_LINEAR_ADVANCE_SCREEN
 #define FTDI_LINEAR_ADVANCE_SCREEN_CLASS LinearAdvanceScreen
 
-  class LinearAdvanceScreen : public BaseNumericAdjustmentScreen, public CachedScreen<LINEAR_ADVANCE_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_LINEAR_ADVANCE_SCREEN
+class LinearAdvanceScreen : public BaseNumericAdjustmentScreen, public CachedScreen<LINEAR_ADVANCE_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_TEMPERATURE_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_TEMPERATURE_SCREEN
 #define FTDI_TEMPERATURE_SCREEN_CLASS TemperatureScreen
 
-  class TemperatureScreen : public BaseNumericAdjustmentScreen, public CachedScreen<TEMPERATURE_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_TEMPERATURE_SCREEN
+class TemperatureScreen : public BaseNumericAdjustmentScreen, public CachedScreen<TEMPERATURE_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

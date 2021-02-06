@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_KILL_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_KILL_SCREEN
 #define FTDI_KILL_SCREEN_CLASS KillScreen
 
@@ -30,5 +31,3 @@ class KillScreen {
   public:
     static void show(const char*);
 };
-
-#endif // FTDI_KILL_SCREEN

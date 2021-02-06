@@ -20,17 +20,16 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_ENDSTOP_STATE_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_ENDSTOP_STATE_SCREEN
 #define FTDI_ENDSTOP_STATE_SCREEN_CLASS EndstopStatesScreen
 
-  class EndstopStatesScreen : public BaseScreen, public UncachedScreen {
-    public:
-      static void onEntry();
-      static void onExit();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-      static void onIdle();
-  };
-
-#endif // FTDI_ENDSTOP_STATE_SCREEN
+class EndstopStatesScreen : public BaseScreen, public UncachedScreen {
+  public:
+    static void onEntry();
+    static void onExit();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+    static void onIdle();
+};

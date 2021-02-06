@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_MOVE_AXIS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_MOVE_AXIS_SCREEN
 #define FTDI_MOVE_AXIS_SCREEN_CLASS MoveAxisScreen
 
@@ -45,5 +46,3 @@ class MoveAxisScreen : public BaseMoveAxisScreen, public CachedScreen<MOVE_AXIS_
     static void onRedraw(draw_mode_t);
     static void onIdle();
 };
-
-#endif // FTDI_MOVE_AXIS_SCREEN

@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_STEPPER_CURRENT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_STEPPER_CURRENT_SCREEN
 #define FTDI_STEPPER_CURRENT_SCREEN_CLASS StepperCurrentScreen
 
-  class StepperCurrentScreen : public BaseNumericAdjustmentScreen, public CachedScreen<STEPPER_CURRENT_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_STEPPER_CURRENT_SCREEN
+class StepperCurrentScreen : public BaseNumericAdjustmentScreen, public CachedScreen<STEPPER_CURRENT_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

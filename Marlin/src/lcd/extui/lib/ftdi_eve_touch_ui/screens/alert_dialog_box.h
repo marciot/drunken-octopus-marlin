@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_ALERT_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_ALERT_DIALOG_BOX
 #define FTDI_ALERT_DIALOG_BOX_CLASS AlertDialogBox
 
@@ -36,5 +37,3 @@ class AlertDialogBox : public DialogBoxBaseClass, public CachedScreen<ALERT_BOX_
     template<typename T> static void showError(T);
     static void hide();
 };
-
-#endif // FTDI_ALERT_DIALOG_BOX

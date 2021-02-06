@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_JUNCTION_DEVIATION_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_JUNCTION_DEVIATION_SCREEN
 #define FTDI_JUNCTION_DEVIATION_SCREEN_CLASS JunctionDeviationScreen
 
-  class JunctionDeviationScreen : public BaseNumericAdjustmentScreen, public CachedScreen<JUNC_DEV_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_JUNCTION_DEVIATION_SCREEN
+class JunctionDeviationScreen : public BaseNumericAdjustmentScreen, public CachedScreen<JUNC_DEV_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

@@ -19,14 +19,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_COCOA_PREHEAT_MENU // Don't use pragma once here
+#pragma once
+
 #define FTDI_COCOA_PREHEAT_MENU
 #define FTDI_COCOA_PREHEAT_MENU_CLASS PreheatMenu
 
-  class PreheatMenu : public BaseScreen, public CachedScreen<PREHEAT_MENU_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_COCOA_PREHEAT_MENU
+class PreheatMenu : public BaseScreen, public CachedScreen<PREHEAT_MENU_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

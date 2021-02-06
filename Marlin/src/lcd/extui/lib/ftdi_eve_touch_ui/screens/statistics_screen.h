@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_STATISTICS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_STATISTICS_SCREEN
 #define FTDI_STATISTICS_SCREEN_CLASS StatisticsScreen
 
-  class StatisticsScreen : public BaseScreen, public UncachedScreen {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_STATISTICS_SCREEN
+class StatisticsScreen : public BaseScreen, public UncachedScreen {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

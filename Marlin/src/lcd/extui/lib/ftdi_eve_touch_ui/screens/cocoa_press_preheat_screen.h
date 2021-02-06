@@ -19,29 +19,28 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_COCOA_PREHEAT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_COCOA_PREHEAT_SCREEN
 #define FTDI_COCOA_PREHEAT_SCREEN_CLASS PreheatTimerScreen
 
-  struct PreheatTimerScreenData {
-      uint32_t start_ms;
-  };
+struct PreheatTimerScreenData {
+    uint32_t start_ms;
+};
 
-  class PreheatTimerScreen : public BaseScreen, public CachedScreen<PREHEAT_TIMER_SCREEN_CACHE> {
-    private:
-      static uint16_t secondsRemaining();
+class PreheatTimerScreen : public BaseScreen, public CachedScreen<PREHEAT_TIMER_SCREEN_CACHE> {
+  private:
+    static uint16_t secondsRemaining();
 
-      static void draw_message(draw_mode_t);
-      static void draw_time_remaining(draw_mode_t);
-      static void draw_interaction_buttons(draw_mode_t);
-      static void draw_adjuster(draw_mode_t, uint8_t tag, progmem_str label, float value, int16_t x, int16_t y, int16_t w, int16_t h);
-    public:
-      static void onRedraw(draw_mode_t);
+    static void draw_message(draw_mode_t);
+    static void draw_time_remaining(draw_mode_t);
+    static void draw_interaction_buttons(draw_mode_t);
+    static void draw_adjuster(draw_mode_t, uint8_t tag, progmem_str label, float value, int16_t x, int16_t y, int16_t w, int16_t h);
+  public:
+    static void onRedraw(draw_mode_t);
 
-      static void onEntry();
-      static void onIdle();
-      static bool onTouchHeld(uint8_t tag);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_COCOA_PREHEAT_SCREEN
+    static void onEntry();
+    static void onIdle();
+    static bool onTouchHeld(uint8_t tag);
+    static bool onTouchEnd(uint8_t tag);
+};

@@ -20,22 +20,21 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_MEDIA_PLAYER_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_MEDIA_PLAYER_SCREEN
 #define FTDI_MEDIA_PLAYER_SCREEN_CLASS MediaPlayerScreen
 
-  class MediaPlayerScreen : public BaseScreen, public UncachedScreen {
-    private:
-      typedef int16_t media_streamer_func_t(void *obj, void *buff, size_t bytes);
+class MediaPlayerScreen : public BaseScreen, public UncachedScreen {
+  private:
+    typedef int16_t media_streamer_func_t(void *obj, void *buff, size_t bytes);
 
-    public:
-      static bool playCardMedia();
-      static bool playBootMedia();
+  public:
+    static bool playCardMedia();
+    static bool playBootMedia();
 
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
 
-      static void playStream(void *obj, media_streamer_func_t*);
-  };
-
-#endif // FTDI_MEDIA_PLAYER_SCREEN
+    static void playStream(void *obj, media_streamer_func_t*);
+};

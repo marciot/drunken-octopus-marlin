@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_FILAMENT_MENU // Don't use pragma once here
+#pragma once
+
 #define FTDI_FILAMENT_MENU
 #define FTDI_FILAMENT_MENU_CLASS FilamentMenu
 
-  class FilamentMenu : public BaseNumericAdjustmentScreen, public CachedScreen<FILAMENT_MENU_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_FILAMENT_MENU
+class FilamentMenu : public BaseNumericAdjustmentScreen, public CachedScreen<FILAMENT_MENU_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

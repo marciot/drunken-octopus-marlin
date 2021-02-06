@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_CHANGE_FILAMENT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_CHANGE_FILAMENT_SCREEN
 #define FTDI_CHANGE_FILAMENT_SCREEN_CLASS ChangeFilamentScreen
 
@@ -48,5 +49,3 @@ class ChangeFilamentScreen : public BaseScreen, public CachedScreen<CHANGE_FILAM
     static bool onTouchHeld(uint8_t tag);
     static void onIdle();
 };
-
-#endif // FTDI_ADVANCED_SETTINGS_MENU

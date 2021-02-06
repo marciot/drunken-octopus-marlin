@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_TOUCH_CALIBRATION_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_TOUCH_CALIBRATION_SCREEN
 #define FTDI_TOUCH_CALIBRATION_SCREEN_CLASS TouchCalibrationScreen
 
@@ -31,5 +32,3 @@ class TouchCalibrationScreen : public BaseScreen, public UncachedScreen {
     static void onRedraw(draw_mode_t);
     static void onIdle();
 };
-
-#endif // FTDI_TOUCH_CALIBRATION_SCREEN

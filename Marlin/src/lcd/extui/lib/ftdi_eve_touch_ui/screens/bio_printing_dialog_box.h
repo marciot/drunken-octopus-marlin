@@ -20,26 +20,25 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BIO_PRINTING_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_BIO_PRINTING_DIALOG_BOX
 #define FTDI_BIO_PRINTING_DIALOG_BOX_CLASS BioPrintingDialogBox
 
-  class BioPrintingDialogBox : public BaseScreen, public CachedScreen<PRINTING_SCREEN_CACHE,PRINTING_SCREEN_DL_SIZE> {
-    private:
-      static void draw_status_message(draw_mode_t, const char * const);
-      static void draw_progress(draw_mode_t);
-      static void draw_time_remaining(draw_mode_t);
-      static void draw_interaction_buttons(draw_mode_t);
-    public:
-      static void onRedraw(draw_mode_t);
+class BioPrintingDialogBox : public BaseScreen, public CachedScreen<PRINTING_SCREEN_CACHE,PRINTING_SCREEN_DL_SIZE> {
+  private:
+    static void draw_status_message(draw_mode_t, const char * const);
+    static void draw_progress(draw_mode_t);
+    static void draw_time_remaining(draw_mode_t);
+    static void draw_interaction_buttons(draw_mode_t);
+  public:
+    static void onRedraw(draw_mode_t);
 
-      static void show();
+    static void show();
 
-      static void setStatusMessage(const char *);
-      static void setStatusMessage(progmem_str);
+    static void setStatusMessage(const char *);
+    static void setStatusMessage(progmem_str);
 
-      static void onIdle();
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_BIO_PRINTING_DIALOG_BOX
+    static void onIdle();
+    static bool onTouchEnd(uint8_t tag);
+};

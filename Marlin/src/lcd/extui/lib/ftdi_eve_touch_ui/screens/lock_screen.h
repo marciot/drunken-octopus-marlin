@@ -20,35 +20,34 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_LOCK_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_LOCK_SCREEN
 #define FTDI_LOCK_SCREEN_CLASS LockScreen
 
-  struct LockScreenData {
-    char passcode[5];
-  };
+struct LockScreenData {
+  char passcode[5];
+};
 
-  class LockScreen : public BaseScreen, public CachedScreen<LOCK_SCREEN_CACHE> {
-    private:
-      friend InterfaceSettingsScreen;
+class LockScreen : public BaseScreen, public CachedScreen<LOCK_SCREEN_CACHE> {
+  private:
+    friend InterfaceSettingsScreen;
 
-      static uint16_t passcode;
+    static uint16_t passcode;
 
-      static char & message_style();
-      static uint16_t compute_checksum();
-      static void onPasscodeEntered();
-    public:
-      static bool is_enabled();
-      static void check_passcode();
-      static void enable();
-      static void disable();
+    static char & message_style();
+    static uint16_t compute_checksum();
+    static void onPasscodeEntered();
+  public:
+    static bool is_enabled();
+    static void check_passcode();
+    static void enable();
+    static void disable();
 
-      static void set_hash(uint16_t pass) {passcode = pass;};
-      static uint16_t get_hash() {return passcode;};
+    static void set_hash(uint16_t pass) {passcode = pass;};
+    static uint16_t get_hash() {return passcode;};
 
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_LOCK_SCREEN
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

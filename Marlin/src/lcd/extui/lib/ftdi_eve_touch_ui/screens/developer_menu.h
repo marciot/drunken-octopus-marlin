@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_DEVELOPER_MENU // Don't use pragma once here
+#pragma once
+
 #define FTDI_DEVELOPER_MENU
 #define FTDI_DEVELOPER_MENU_CLASS DeveloperMenu
 
-  class DeveloperMenu : public BaseScreen, public UncachedScreen {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_DEVELOPER_MENU
+class DeveloperMenu : public BaseScreen, public UncachedScreen {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

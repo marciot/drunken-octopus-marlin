@@ -21,14 +21,13 @@
  *   location: <https://www.gnu.org/licenses/>.                              *
  ****************************************************************************/
 
-#ifndef FTDI_COCOA_MOVE_XYZ_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_COCOA_MOVE_XYZ_SCREEN
 #define FTDI_COCOA_MOVE_XYZ_SCREEN_CLASS MoveXYZScreen
 
-  class MoveXYZScreen : public BaseMoveAxisScreen, public CachedScreen<MOVE_XYZ_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static void onIdle();
-  };
-
-#endif // FTDI_COCOA_MOVE_XYZ_SCREEN
+class MoveXYZScreen : public BaseMoveAxisScreen, public CachedScreen<MOVE_XYZ_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static void onIdle();
+};

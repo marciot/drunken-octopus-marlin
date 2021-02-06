@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BIO_CONFIRM_HOME_XYZ // Don't use pragma once here
+#pragma once
+
 #define FTDI_BIO_CONFIRM_HOME_XYZ
 #define FTDI_BIO_CONFIRM_HOME_XYZ_CLASS BioConfirmHomeXYZ
 
-  class BioConfirmHomeXYZ : public DialogBoxBaseClass, public UncachedScreen {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_BIO_CONFIRM_HOME_XYZ
+class BioConfirmHomeXYZ : public DialogBoxBaseClass, public UncachedScreen {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

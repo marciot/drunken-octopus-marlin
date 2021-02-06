@@ -21,15 +21,14 @@
  *   location: <https://www.gnu.org/licenses/>.                              *
  ****************************************************************************/
 
-#ifndef FTDI_COCOA_UNLOAD_CARTRIDGE_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_COCOA_UNLOAD_CARTRIDGE_SCREEN
 #define FTDI_COCOA_UNLOAD_CARTRIDGE_SCREEN_CLASS UnloadCartridgeScreen
 
-  class UnloadCartridgeScreen : public BaseScreen, public CachedScreen<UNLOAD_CARTRIDGE_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_COCOA_UNLOAD_CARTRIDGE_SCREEN
+class UnloadCartridgeScreen : public BaseScreen, public CachedScreen<UNLOAD_CARTRIDGE_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+    static bool onTouchHeld(uint8_t tag);
+};

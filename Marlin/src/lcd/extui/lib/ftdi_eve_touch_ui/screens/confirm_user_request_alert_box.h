@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_CONFIRM_USER_REQUEST_ALERT_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_CONFIRM_USER_REQUEST_ALERT_BOX
 #define FTDI_CONFIRM_USER_REQUEST_ALERT_BOX_CLASS ConfirmUserRequestAlertBox
 
@@ -32,5 +33,3 @@ class ConfirmUserRequestAlertBox : public AlertDialogBox {
     static void show(const char*);
     static void onIdle();
 };
-
-#endif // FTDI_CONFIRM_USER_REQUEST_ALERT_BOX

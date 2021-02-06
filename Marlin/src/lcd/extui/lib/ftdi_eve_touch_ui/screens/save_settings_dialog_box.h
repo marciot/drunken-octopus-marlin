@@ -20,20 +20,19 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_SAVE_SETTINGS_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_SAVE_SETTINGS_DIALOG_BOX
 #define FTDI_SAVE_SETTINGS_DIALOG_BOX_CLASS SaveSettingsDialogBox
 
-  class SaveSettingsDialogBox : public DialogBoxBaseClass, public UncachedScreen {
-    private:
-      static bool needs_save;
+class SaveSettingsDialogBox : public DialogBoxBaseClass, public UncachedScreen {
+  private:
+    static bool needs_save;
 
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
 
-      static void promptToSaveSettings();
-      static void settingsChanged() {needs_save = true;}
-  };
-
-#endif // FTDI_SAVE_SETTINGS_DIALOG_BOX
+    static void promptToSaveSettings();
+    static void settingsChanged() {needs_save = true;}
+};

@@ -20,49 +20,48 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_INTERFACE_SETTINGS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_INTERFACE_SETTINGS_SCREEN
 #define FTDI_INTERFACE_SETTINGS_SCREEN_CLASS InterfaceSettingsScreen
 
-  struct InterfaceSettingsScreenData {
-    uint8_t volume;
-    uint8_t brightness;
-  };
+struct InterfaceSettingsScreenData {
+  uint8_t volume;
+  uint8_t brightness;
+};
 
-  class InterfaceSettingsScreen : public BaseScreen, public CachedScreen<INTERFACE_SETTINGS_SCREEN_CACHE> {
-    private:
-      struct persistent_data_t {
-        uint32_t touch_transform_a;
-        uint32_t touch_transform_b;
-        uint32_t touch_transform_c;
-        uint32_t touch_transform_d;
-        uint32_t touch_transform_e;
-        uint32_t touch_transform_f;
-        uint16_t passcode;
-        uint8_t  display_brightness;
-        int8_t   display_h_offset_adj;
-        int8_t   display_v_offset_adj;
-        uint8_t  sound_volume;
-        uint8_t  bit_flags;
-        uint8_t  event_sounds[InterfaceSoundsScreen::NUM_EVENTS];
-      };
+class InterfaceSettingsScreen : public BaseScreen, public CachedScreen<INTERFACE_SETTINGS_SCREEN_CACHE> {
+  private:
+    struct persistent_data_t {
+      uint32_t touch_transform_a;
+      uint32_t touch_transform_b;
+      uint32_t touch_transform_c;
+      uint32_t touch_transform_d;
+      uint32_t touch_transform_e;
+      uint32_t touch_transform_f;
+      uint16_t passcode;
+      uint8_t  display_brightness;
+      int8_t   display_h_offset_adj;
+      int8_t   display_v_offset_adj;
+      uint8_t  sound_volume;
+      uint8_t  bit_flags;
+      uint8_t  event_sounds[InterfaceSoundsScreen::NUM_EVENTS];
+    };
 
-    public:
-      #ifdef ARCHIM2_SPI_FLASH_EEPROM_BACKUP_SIZE
-        static bool backupEEPROM();
-      #endif
+  public:
+    #ifdef ARCHIM2_SPI_FLASH_EEPROM_BACKUP_SIZE
+      static bool backupEEPROM();
+    #endif
 
-      static void saveSettings(char *);
-      static void loadSettings(const char *);
-      static void defaultSettings();
-      static void failSafeSettings();
+    static void saveSettings(char *);
+    static void loadSettings(const char *);
+    static void defaultSettings();
+    static void failSafeSettings();
 
-      static void onStartup();
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchStart(uint8_t tag);
-      static bool onTouchEnd(uint8_t tag);
-      static void onIdle();
-  };
-
-#endif // FTDI_INTERFACE_SETTINGS_SCREEN
+    static void onStartup();
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchStart(uint8_t tag);
+    static bool onTouchEnd(uint8_t tag);
+    static void onIdle();
+};

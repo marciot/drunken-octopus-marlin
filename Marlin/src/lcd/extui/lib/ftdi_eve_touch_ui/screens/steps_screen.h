@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_STEPS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_STEPS_SCREEN
 #define FTDI_STEPS_SCREEN_CLASS StepsScreen
 
@@ -29,5 +30,3 @@ class StepsScreen : public BaseNumericAdjustmentScreen, public CachedScreen<STEP
     static void onRedraw(draw_mode_t);
     static bool onTouchHeld(uint8_t tag);
 };
-
-#endif // FTDI_STEPS_SCREEN

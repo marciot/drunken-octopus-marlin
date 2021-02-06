@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_DISPLAY_TUNING_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_DISPLAY_TUNING_SCREEN
 #define FTDI_DISPLAY_TUNING_SCREEN_CLASS DisplayTuningScreen
 
-  class DisplayTuningScreen : public BaseNumericAdjustmentScreen, public CachedScreen<DISPLAY_TIMINGS_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_DISPLAY_TUNING_SCREEN
+class DisplayTuningScreen : public BaseNumericAdjustmentScreen, public CachedScreen<DISPLAY_TIMINGS_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

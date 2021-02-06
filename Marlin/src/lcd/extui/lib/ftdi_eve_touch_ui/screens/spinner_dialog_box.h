@@ -20,23 +20,22 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_SPINNER_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_SPINNER_DIALOG_BOX
 #define FTDI_SPINNER_DIALOG_BOX_CLASS SpinnerDialogBox
 
-  struct SpinnerDialogBoxData {
-    bool auto_hide;
-  };
+struct SpinnerDialogBoxData {
+  bool auto_hide;
+};
 
-  class SpinnerDialogBox : public DialogBoxBaseClass, public CachedScreen<SPINNER_CACHE,SPINNER_DL_SIZE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static void onIdle();
+class SpinnerDialogBox : public DialogBoxBaseClass, public CachedScreen<SPINNER_CACHE,SPINNER_DL_SIZE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static void onIdle();
 
-      static void show(const progmem_str);
-      static void hide();
-      static void enqueueAndWait_P(const progmem_str commands);
-      static void enqueueAndWait_P(const progmem_str message, const progmem_str commands);
-  };
-
-#endif // FTDI_SPINNER_DIALOG_BOX
+    static void show(const progmem_str);
+    static void hide();
+    static void enqueueAndWait_P(const progmem_str commands);
+    static void enqueueAndWait_P(const progmem_str message, const progmem_str commands);
+};

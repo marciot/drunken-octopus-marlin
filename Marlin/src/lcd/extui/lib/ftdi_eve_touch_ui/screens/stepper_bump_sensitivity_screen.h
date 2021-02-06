@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_STEPPER_BUMP_SENSITIVITY_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_STEPPER_BUMP_SENSITIVITY_SCREEN
 #define FTDI_STEPPER_BUMP_SENSITIVITY_SCREEN_CLASS StepperBumpSensitivityScreen
 
-  class StepperBumpSensitivityScreen : public BaseNumericAdjustmentScreen, public CachedScreen<STEPPER_BUMP_SENSITIVITY_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_STEPPER_BUMP_SENSITIVITY_SCREEN
+class StepperBumpSensitivityScreen : public BaseNumericAdjustmentScreen, public CachedScreen<STEPPER_BUMP_SENSITIVITY_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

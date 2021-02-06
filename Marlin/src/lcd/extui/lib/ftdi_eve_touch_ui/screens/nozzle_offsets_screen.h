@@ -20,15 +20,14 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_NOZZLE_OFFSETS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_NOZZLE_OFFSETS_SCREEN
 #define FTDI_NOZZLE_OFFSETS_SCREEN_CLASS NozzleOffsetScreen
 
-  class NozzleOffsetScreen : public BaseNumericAdjustmentScreen, public CachedScreen<NOZZLE_OFFSET_SCREEN_CACHE> {
-    public:
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_NOZZLE_OFFSETS_SCREEN
+class NozzleOffsetScreen : public BaseNumericAdjustmentScreen, public CachedScreen<NOZZLE_OFFSET_SCREEN_CACHE> {
+  public:
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

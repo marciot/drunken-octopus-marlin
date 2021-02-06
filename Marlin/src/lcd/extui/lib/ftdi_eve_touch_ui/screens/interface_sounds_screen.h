@@ -20,39 +20,38 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_INTERFACE_SOUNDS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_INTERFACE_SOUNDS_SCREEN
 #define FTDI_INTERFACE_SOUNDS_SCREEN_CLASS InterfaceSoundsScreen
 
-  class InterfaceSoundsScreen : public BaseScreen, public CachedScreen<INTERFACE_SOUNDS_SCREEN_CACHE> {
-    public:
-      enum event_t {
-        PRINTING_STARTED  = 0,
-        PRINTING_FINISHED = 1,
-        PRINTING_FAILED   = 2,
+class InterfaceSoundsScreen : public BaseScreen, public CachedScreen<INTERFACE_SOUNDS_SCREEN_CACHE> {
+  public:
+    enum event_t {
+      PRINTING_STARTED  = 0,
+      PRINTING_FINISHED = 1,
+      PRINTING_FAILED   = 2,
 
-        NUM_EVENTS
-      };
+      NUM_EVENTS
+    };
 
-    private:
-      friend class InterfaceSettingsScreen;
+  private:
+    friend class InterfaceSettingsScreen;
 
-      static uint8_t event_sounds[NUM_EVENTS];
+    static uint8_t event_sounds[NUM_EVENTS];
 
-      static const char* getSoundSelection(event_t);
-      static void toggleSoundSelection(event_t);
-      static void setSoundSelection(event_t, const FTDI::SoundPlayer::sound_t*);
+    static const char* getSoundSelection(event_t);
+    static void toggleSoundSelection(event_t);
+    static void setSoundSelection(event_t, const FTDI::SoundPlayer::sound_t*);
 
-    public:
-      static void playEventSound(event_t, FTDI::play_mode_t = FTDI::PLAY_ASYNCHRONOUS);
+  public:
+    static void playEventSound(event_t, FTDI::play_mode_t = FTDI::PLAY_ASYNCHRONOUS);
 
-      static void defaultSettings();
+    static void defaultSettings();
 
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchStart(uint8_t tag);
-      static bool onTouchEnd(uint8_t tag);
-      static void onIdle();
-  };
-
-#endif // FTDI_INTERFACE_SOUNDS_SCREEN
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchStart(uint8_t tag);
+    static bool onTouchEnd(uint8_t tag);
+    static void onIdle();
+};

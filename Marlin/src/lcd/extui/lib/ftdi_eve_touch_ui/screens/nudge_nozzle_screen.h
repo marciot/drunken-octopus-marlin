@@ -20,26 +20,25 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_NUDGE_NOZZLE_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_NUDGE_NOZZLE_SCREEN
 #define FTDI_NUDGE_NOZZLE_SCREEN_CLASS NudgeNozzleScreen
 
-  struct NudgeNozzleScreenData {
-    struct BaseNumericAdjustmentScreenData placeholder;
-    xyz_int_t rel;
-    #if HAS_MULTI_EXTRUDER
-      bool link_nozzles;
-    #endif
-    bool show_offsets;
-  };
+struct NudgeNozzleScreenData {
+  struct BaseNumericAdjustmentScreenData placeholder;
+  xyz_int_t rel;
+  #if HAS_MULTI_EXTRUDER
+    bool link_nozzles;
+  #endif
+  bool show_offsets;
+};
 
-  class NudgeNozzleScreen : public BaseNumericAdjustmentScreen, public CachedScreen<ADJUST_OFFSETS_SCREEN_CACHE> {
-    public:
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-      static bool onTouchHeld(uint8_t tag);
-      static void onIdle();
-  };
-
-#endif // FTDI_NUDGE_NOZZLE_SCREEN
+class NudgeNozzleScreen : public BaseNumericAdjustmentScreen, public CachedScreen<ADJUST_OFFSETS_SCREEN_CACHE> {
+  public:
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+    static bool onTouchHeld(uint8_t tag);
+    static void onIdle();
+};

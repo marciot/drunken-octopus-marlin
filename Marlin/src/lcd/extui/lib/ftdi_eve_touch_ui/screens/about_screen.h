@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_ABOUT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_ABOUT_SCREEN
 #define FTDI_ABOUT_SCREEN_CLASS AboutScreen
 
@@ -30,5 +31,3 @@ class AboutScreen : public BaseScreen, public UncachedScreen {
     static void onRedraw(draw_mode_t);
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_ABOUT_SCREEN

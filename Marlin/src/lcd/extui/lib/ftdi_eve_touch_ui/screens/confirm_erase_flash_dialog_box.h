@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_CONFIRM_ERASE_FLASH_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_CONFIRM_ERASE_FLASH_DIALOG_BOX
 #define FTDI_CONFIRM_ERASE_FLASH_DIALOG_BOX_CLASS ConfirmEraseFlashDialogBox
 
-  class ConfirmEraseFlashDialogBox : public DialogBoxBaseClass, public UncachedScreen {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchEnd(uint8_t tag);
-  };
-
-#endif // FTDI_CONFIRM_ERASE_FLASH_DIALOG_BOX
+class ConfirmEraseFlashDialogBox : public DialogBoxBaseClass, public UncachedScreen {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchEnd(uint8_t tag);
+};

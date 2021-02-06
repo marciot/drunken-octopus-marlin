@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_DIALOG_BOX_BASE_CLASS // Don't use pragma once here
+#pragma once
+
 #define FTDI_DIALOG_BOX_BASE_CLASS
 #define FTDI_DIALOG_BOX_BASE_CLASS_CLASS DialogBoxBaseClass
 
@@ -37,5 +38,3 @@ class DialogBoxBaseClass : public BaseScreen {
     static bool onTouchEnd(uint8_t tag);
     static void onIdle();
 };
-
-#endif // FTDI_DIALOG_BOX_BASE_CLASS

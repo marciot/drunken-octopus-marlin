@@ -21,7 +21,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_MAIN_MENU // Don't use pragma once here
+#pragma once
+
 #define FTDI_MAIN_MENU
 #define FTDI_MAIN_MENU_CLASS MainMenu
 
@@ -30,5 +31,3 @@ class MainMenu : public BaseScreen, public CachedScreen<MENU_SCREEN_CACHE> {
     static void onRedraw(draw_mode_t);
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_MAIN_MENU

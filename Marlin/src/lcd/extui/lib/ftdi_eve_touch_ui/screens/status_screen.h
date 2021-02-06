@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_STATUS_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_STATUS_SCREEN
 #define FTDI_STATUS_SCREEN_CLASS StatusScreen
 
@@ -42,5 +43,3 @@ class StatusScreen : public BaseScreen, public CachedScreen<STATUS_SCREEN_CACHE,
     static void onIdle();
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_STATUS_SCREEN

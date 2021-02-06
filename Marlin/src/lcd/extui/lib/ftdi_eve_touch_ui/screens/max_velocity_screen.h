@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_MAX_VELOCITY_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_MAX_VELOCITY_SCREEN
 #define FTDI_MAX_VELOCITY_SCREEN_CLASS MaxVelocityScreen
 
-  class MaxVelocityScreen : public BaseNumericAdjustmentScreen, public CachedScreen<MAX_VELOCITY_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_MAX_VELOCITY_SCREEN
+class MaxVelocityScreen : public BaseNumericAdjustmentScreen, public CachedScreen<MAX_VELOCITY_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

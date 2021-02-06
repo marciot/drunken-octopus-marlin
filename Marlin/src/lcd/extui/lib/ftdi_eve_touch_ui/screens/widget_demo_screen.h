@@ -20,16 +20,15 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_WIDGET_DEMO_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_WIDGET_DEMO_SCREEN
 #define FTDI_WIDGET_DEMO_SCREEN_CLASS WidgetsScreen
 
-  class WidgetsScreen : public BaseScreen, public UncachedScreen {
-    public:
-      static void onEntry();
-      static void onRedraw(draw_mode_t);
-      static bool onTouchStart(uint8_t tag);
-      static void onIdle();
-  };
-
-#endif // FTDI_WIDGET_DEMO_SCREEN
+class WidgetsScreen : public BaseScreen, public UncachedScreen {
+  public:
+    static void onEntry();
+    static void onRedraw(draw_mode_t);
+    static bool onTouchStart(uint8_t tag);
+    static void onIdle();
+};

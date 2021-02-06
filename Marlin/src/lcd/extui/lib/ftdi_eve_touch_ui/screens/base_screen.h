@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_BASE_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_BASE_SCREEN
 #define FTDI_BASE_SCREEN_CLASS BaseScreen
 
@@ -40,5 +41,3 @@ class BaseScreen : public UIScreen {
     static void onEntry();
     static void onIdle();
 };
-
-#endif // FTDI_BASE_SCREEN

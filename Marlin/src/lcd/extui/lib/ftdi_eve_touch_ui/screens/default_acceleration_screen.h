@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_DEFAULT_ACCELERATION_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_DEFAULT_ACCELERATION_SCREEN
 #define FTDI_DEFAULT_ACCELERATION_SCREEN_CLASS DefaultAccelerationScreen
 
-  class DefaultAccelerationScreen : public BaseNumericAdjustmentScreen, public CachedScreen<DEFAULT_ACCELERATION_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_DEFAULT_ACCELERATION_SCREEN
+class DefaultAccelerationScreen : public BaseNumericAdjustmentScreen, public CachedScreen<DEFAULT_ACCELERATION_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

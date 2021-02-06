@@ -20,14 +20,13 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_FILAMENT_RUNOUT_SCREEN // Don't use pragma once here
+#pragma once
+
 #define FTDI_FILAMENT_RUNOUT_SCREEN
 #define FTDI_FILAMENT_RUNOUT_SCREEN_CLASS FilamentRunoutScreen
 
-  class FilamentRunoutScreen : public BaseNumericAdjustmentScreen, public CachedScreen<FILAMENT_RUNOUT_SCREEN_CACHE> {
-    public:
-      static void onRedraw(draw_mode_t);
-      static bool onTouchHeld(uint8_t tag);
-  };
-
-#endif // FTDI_FILAMENT_RUNOUT_SCREEN
+class FilamentRunoutScreen : public BaseNumericAdjustmentScreen, public CachedScreen<FILAMENT_RUNOUT_SCREEN_CACHE> {
+  public:
+    static void onRedraw(draw_mode_t);
+    static bool onTouchHeld(uint8_t tag);
+};

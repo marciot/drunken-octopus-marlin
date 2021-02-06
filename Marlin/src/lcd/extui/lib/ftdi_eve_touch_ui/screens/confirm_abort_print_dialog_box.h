@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_CONFIRM_ABORT_PRINT_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_CONFIRM_ABORT_PRINT_DIALOG_BOX
 #define FTDI_CONFIRM_ABORT_PRINT_DIALOG_BOX_CLASS ConfirmAbortPrintDialogBox
 
@@ -29,5 +30,3 @@ class ConfirmAbortPrintDialogBox : public DialogBoxBaseClass, public UncachedScr
     static void onRedraw(draw_mode_t);
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_CONFIRM_ABORT_PRINT_DIALOG_BOX

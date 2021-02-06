@@ -20,7 +20,8 @@
  *   location: <https://www.gnu.org/licenses/>.                             *
  ****************************************************************************/
 
-#ifndef FTDI_CONFIRM_AUTO_CALIBRATION_DIALOG_BOX // Don't use pragma once here
+#pragma once
+
 #define FTDI_CONFIRM_AUTO_CALIBRATION_DIALOG_BOX
 #define FTDI_CONFIRM_AUTO_CALIBRATION_DIALOG_BOX_CLASS ConfirmAutoCalibrationDialogBox
 
@@ -29,5 +30,3 @@ class ConfirmAutoCalibrationDialogBox : public DialogBoxBaseClass, public Uncach
     static void onRedraw(draw_mode_t);
     static bool onTouchEnd(uint8_t tag);
 };
-
-#endif // FTDI_CONFIRM_AUTO_CALIBRATION_DIALOG_BOX
