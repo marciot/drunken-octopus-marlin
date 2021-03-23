@@ -249,8 +249,10 @@ void BedMeshScreen::setHighlightedValue(float value) {
 
 void BedMeshScreen::moveToHighlightedValue() {
   xy_uint8_t pt;
-  if (tagToPoint(mydata.highlightedTag, pt))
+  if (ExtUI::getMeshValid() && tagToPoint(mydata.highlightedTag, pt)) {
+    ExtUI::setLevelingActive(true);
     ExtUI::moveToMeshPoint(pt, gaugeThickness + mydata.zAdjustment);
+  }
 }
 
 void BedMeshScreen::adjustHighlightedValue(float increment) {
@@ -340,8 +342,10 @@ bool BedMeshScreen::onTouchEnd(uint8_t tag) {
 }
 
 void BedMeshScreen::onMeshUpdate(const int8_t, const int8_t, const float) {
-  if (AT_SCREEN(BedMeshScreen))
+  if (AT_SCREEN(BedMeshScreen)) {
     onRefresh();
+    ExtUI::yield();
+  }
 }
 
 void BedMeshScreen::onMeshUpdate(const int8_t x, const int8_t y, const ExtUI::probe_state_t state) {
@@ -374,10 +378,14 @@ void BedMeshScreen::startMeshProbe() {
 }
 
 void BedMeshScreen::showMeshEditor() {
-  SpinnerDialogBox::enqueueAndWait_P(ExtUI::isMachineHomed() ? F("M420 S1") : F("G28\nM420 S1"));
-  // After the spinner, go to this screen.
-  current_screen.forget();
-  PUSH_SCREEN(BedMeshScreen);
+  if (!ExtUI::isMachineHomed()) {
+    SpinnerDialogBox::enqueueAndWait_P(F("G28\nM400"));
+    // After the spinner, go to this screen.
+    current_screen.forget();
+    PUSH_SCREEN(BedMeshScreen);
+  } else {
+    GOTO_SCREEN(BedMeshScreen);
+  }
 }
 
 #endif // FTDI_BED_MESH_SCREEN
